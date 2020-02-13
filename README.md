@@ -83,3 +83,30 @@
 	
 	参考：https://www.jianshu.com/p/d32ae141f680
 		 https://blog.csdn.net/zjcjava/article/details/78608892
+		 
+5、服务注册和发现Eureka Server搭建实战
+	简介：使用IDEA搭建Eureka服务中心Server端并启动，项目基本骨架介绍
+	
+	官方文档：http://cloud.spring.io/spring-cloud-netflix/single/spring-cloud-netflix.html#spring-cloud-eureka-server
+
+	第一步：创建项目
+	第二步: 添加注解 @EnableEurekaServer
+	第三步：增加配置application.yml
+			server:
+			  port: 8761
+
+			eureka:
+			  instance:
+			    hostname: localhost
+			  client:
+			  #声明自己是个服务端
+			    registerWithEureka: false
+			    fetchRegistry: false
+			    serviceUrl:
+			      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+	第四步：访问注册中心页面
+
+	maven地址: https://www.cnblogs.com/sword-successful/p/6408281.html
+	
+	
